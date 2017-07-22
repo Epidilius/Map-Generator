@@ -19,18 +19,9 @@ public class MapGenV2 : MonoBehaviour {
 		
 	}
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            GenerateNearbyZones();
-        }
-    }
-
     public void GenerateNearbyZones()
     {
-        var parent = transform.parent.gameObject;
-        var bridgeZoneCollection = parent.transform.Find("BridgeZones");
+        var bridgeZoneCollection = transform.Find("BridgeZones");
         foreach(GameObject zone in bridgeZoneCollection)
         {
             GenerateAreaFromBridgeZone(zone);
