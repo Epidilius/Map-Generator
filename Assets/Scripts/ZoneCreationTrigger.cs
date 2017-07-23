@@ -9,7 +9,7 @@ public class ZoneCreationTrigger : MonoBehaviour {
         if (other.gameObject.tag == "Player")
         {
             Debug.Log("Bridge Collision, creating zones");
-            this.transform.parent.GetComponent<MapGenV2>().GenerateNearbyZones();
+            this.transform.parent.transform.parent.GetComponent<MapGenV2>().GenerateNearbyZones();
         }
     }
 }
