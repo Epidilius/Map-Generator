@@ -80,5 +80,9 @@ public class MapGenV2 : MonoBehaviour {
         var bridgeZoneID = Random.Range(0, bridgeZones.childCount);
         var bzToConnectTo = bridgeZones.Find("Bridge Zone (" + bridgeZoneID + ")");
         var rotation = Quaternion.LookRotation((bzToConnectTo.position - aBridgeEnd.transform.position).normalized);
+
+        var offset = bzToConnectTo.parent.parent.position - bzToConnectTo.position;
+        var endPoint = startPoint - offset;
+        bzToConnectTo.parent.parent.SetPositionAndRotation(endPoint, rotation);
     }
 }
